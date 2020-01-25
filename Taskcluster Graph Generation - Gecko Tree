@@ -1,0 +1,15 @@
+TaskCluster Task-Graph Generation:
+
+    Task Kind - Tasks are grouped by kind, where tasks of the same kind have substantial similarities or share common processing logic. Kinds are the primary means of supporting diversity, in that a developer can add a new kind to do just about anything without impacting other kinds.
+
+    Task Attributes - Tasks have string attributes by which can be used for filtering. 
+
+    Task Labels - Each task has a unique identifier within the graph that is stable across runs of the graph generation algorithm. Labels are replaced with TaskCluster TaskIds at the latest time possible, facilitating analysis of graphs without distracting noise from randomly-generated taskIds.
+
+    Optimization - replacement of a task in a graph with an equivalent, already-completed task, or a null task, avoiding repetition of work.
+
+Kinds:
+
+    They provide an interface between the large-scale graph-generation process and the small-scale task-definition needs of different kinds of tasks. 
+
+    A kind.yml file contains data about the kind, as well as referring to a Python class implementing the kind in its implementation key.
