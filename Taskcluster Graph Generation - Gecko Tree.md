@@ -180,3 +180,23 @@ def make_task_description(config, jobs):
         yield task
 
 ```
+
+## TaskGraphGenerator class:
+
+### Basic Flow 2020/01:
+
+TaskGraphGenerator:
+- Start a generator, the graph loading will be performed by `TaskGraphGenerator` properties (https://github.com/mozilla/gecko-dev/blob/0ce271401d49641c793269f72d3542c79fa01c18/taskcluster/taskgraph/generator.py#L123)
+- Properties calls `_run_until` (https://github.com/mozilla/gecko-dev/blob/0ce271401d49641c793269f72d3542c79fa01c18/taskcluster/taskgraph/generator.py#L354), `_run_until` iterates over `_run` (https://github.com/mozilla/gecko-dev/blob/0ce271401d49641c793269f72d3542c79fa01c18/taskcluster/taskgraph/generator.py#L220) generator.
+- Generator yielding order:
+  - `graph_config`, main config loaded from `taskcluster/ci/config.yml`.
+  - `parameters`, parameters from `TaskGraphGenerator` constructor.
+  - `full_task_set`, extracted from `kinds` and a some graph related routines.
+  - `full_task_graph`, extracted from `full_task_set` and a some graph related routines.
+  - `target_task_set`, extracted from `tasks`.
+  - `target_task_graph`, extracted from `tasks`.
+  - `optimized_task_graph`, extracted from `target_task_graph`
+  - `label_to_taskid`, extracted from a optimization routine (needs more detail).
+  - `morphed_task_graph`, I'm not sure what means "morphs".
+
+### Kind loading:
