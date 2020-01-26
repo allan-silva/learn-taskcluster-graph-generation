@@ -216,10 +216,7 @@ Tasks will be loaded using configured `loader` in `kind.yaml`, i. e. `loader: ta
 - `push`: The push phase pushes the candidates files to the appropriate release directory on S3.
 - `ship`: The ship phase ships or schedules updates to users. 
 
-
-
-
-
+https://firefox-source-docs.mozilla.org/taskcluster/release-promotion-action.html
 
 ### Misc:
 The final transform should be taskgraph.transform.task:transforms, which produces the output format the task-graph generation infrastructure expects.
