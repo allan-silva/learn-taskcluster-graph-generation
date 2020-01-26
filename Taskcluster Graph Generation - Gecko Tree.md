@@ -208,10 +208,39 @@ Tasks will be loaded using configured `loader` in `kind.yaml`, i. e. `loader: ta
 
 `kind-dependencies`: Kinds which should be loaded before this one. This is useful when the kind will use the list of already-created tasks to determine which tasks to create, for example adding an upload-symbols task after every build task.
 
+## Release Promotion:
+### Release Promotion Phases:
+
+- `build`: The build phase creates shippable builds. These are triggered on push on release branches.
+- `promote`: The promote phase localizes the shippable builds, creates any update MARs, and populates the candidates directories on S3.
+- `push`: The push phase pushes the candidates files to the appropriate release directory on S3.
+- `ship`: The ship phase ships or schedules updates to users. 
+
+
+
+
+
 
 ### Misc:
+The final transform should be taskgraph.transform.task:transforms, which produces the output format the task-graph generation infrastructure expects.
+
 Worker implementation is defined by `payload_builder`.
 
 Balrog Known Action: taskcluster/taskgraph/util/scriptworker.py - 124-167, 295.
 
 Balrog Payload: taskcluster/taskgraph/transforms/task.py - 1082.
+
+taskcluster/taskgraph/transforms/task.py
+
+taskcluster/taskgraph/transforms/balrog_submit.py
+
+taskcluster/taskgraph/util/scriptworker.py
+
+taskcluster/taskgraph/transforms/scriptworker.py
+
+taskcluster/taskgraph/transforms/base.py
+
+taskcluster/taskgraph/generator.py
+
+https://firefox-source-docs.mozilla.org/taskcluster/transforms.html#keyed-by
+
