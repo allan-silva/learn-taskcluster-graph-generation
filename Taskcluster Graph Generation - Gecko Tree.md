@@ -199,4 +199,19 @@ TaskGraphGenerator:
   - `label_to_taskid`, extracted from a optimization routine (needs more detail).
   - `morphed_task_graph`, I'm not sure what means "morphs".
 
-### Kind loading:
+### Kind and task loading:
+
+Kinds are all subdirectories of `taskcluster/ci/` with `kind.yml` config inside.
+Kinds are loaded on `_run` generator (https://github.com/mozilla/gecko-dev/blob/0ce271401d49641c793269f72d3542c79fa01c18/taskcluster/taskgraph/generator.py#L242).
+
+Tasks will be loaded using configured `loader` in `kind.yaml`, i. e. `loader: taskgraph.loader.single_dep:loader`, the kind dependencies will be resolved and transformations will be performed generating the tasks. (https://github.com/mozilla/gecko-dev/blob/0ce271401d49641c793269f72d3542c79fa01c18/taskcluster/taskgraph/generator.py#L51)
+
+`kind-dependencies`: Kinds which should be loaded before this one. This is useful when the kind will use the list of already-created tasks to determine which tasks to create, for example adding an upload-symbols task after every build task.
+
+
+### Misc:
+Worker implementation is defined by `payload_builder`.
+
+Balrog Known Action: taskcluster/taskgraph/util/scriptworker.py - 124-167, 295.
+
+Balrog Payload: taskcluster/taskgraph/transforms/task.py - 1082.
