@@ -1,0 +1,45 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+loader: taskgraph.loader.transform:loader
+
+transforms:
+    - taskgraph.transforms.release:run_on_releases
+    - taskgraph.transforms.release_deps:transforms
+    - taskgraph.transforms.scriptworker:add_balrog_scopes
+    - taskgraph.transforms.task:transforms
+
+kind-dependencies:
+    - release-bouncer-check
+    - release-push-langpacks
+
+job-defaults:
+    run-on-projects: []
+    shipping-phase: ship
+    worker-type: balrog
+    worker:
+        implementation: balrog
+        balrog-action: set-readonly
+
+jobs:
+    firefox:
+        description: Set Firefox release as readonly in balrog
+        name: release-firefox_set_readonly_in_balrog
+        shipping-product: firefox
+        worker:
+            product: firefox
+    firefox-bz2:
+        description: Set Firefox release as readonly in balrog (bz2)
+        name: release-firefox_set_readonly_in_balrog-bz2
+        shipping-product: firefox
+        run-on-releases: [esr68]
+        worker:
+            product: firefox
+            blob-suffix: -bz2
+    devedition:
+        description: Set Devedition release as readonly in balrog
+        name: release-devedition_set_readonly_in_balrog
+        shipping-product: devedition
+        worker:
+            product: devedition
