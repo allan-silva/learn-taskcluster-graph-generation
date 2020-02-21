@@ -1,0 +1,149 @@
+diff --git a/home/allan-silva/code.allan/graph/clean/mb-ship-devedition.json b/home/allan-silva/code.allan/graph/dirty/mb-ship-devedition.json
+index 70467cfc21fd..f0fc7a43e5ed 100644
+--- a/home/allan-silva/code.allan/graph/clean/mb-ship-devedition.json
++++ b/home/allan-silva/code.allan/graph/dirty/mb-ship-devedition.json
+@@ -412637,60 +412637,144 @@
+                 "source": "https://hg.mozilla.org/releases/mozilla-beta/file/196059cada7070ab1e35db83a22b60389bd0c794/taskcluster/ci/release-balrog-scheduling"
+             }, 
+             "payload": {
+                 "build_number": 1, 
+                 "force_fallback_mapping_update": true, 
+                 "product": "devedition", 
+                 "publish_rules": [
+                     10
+                 ], 
+                 "release_eta": "2018-01-31T00:30:00+00:00", 
+                 "version": "60.0b1"
+             }, 
+             "priority": "high", 
+             "provisionerId": "scriptworker-k8s", 
+             "routes": [
+                 "tc-treeherder.v2.mozilla-beta.196059cada7070ab1e35db83a22b60389bd0c794.8069"
+             ], 
+             "scopes": [
+                 "project:releng:balrog:server:beta", 
+                 "project:releng:balrog:action:schedule"
+             ], 
+             "tags": {
+                 "createdForUser": "xquan@mozilla.com", 
+                 "kind": "release-balrog-scheduling", 
+                 "label": "release-balrog-scheduling-devedition", 
+                 "retrigger": "false"
+             }, 
+             "workerType": "gecko-3-balrog"
+         }
+     }, 
++    "release-balrog-set-readonly-devedition": {
++        "attributes": {
++            "always_target": false, 
++            "kind": "release-balrog-set-readonly", 
++            "required_signoffs": [
++                "mar-signing"
++            ], 
++            "run_on_projects": [], 
++            "shipping_phase": "ship", 
++            "shipping_product": "devedition"
++        }, 
++        "dependencies": {
++            "push-langpacks-build-linux64-devedition-nightly/opt": "push-langpacks-build-linux64-devedition-nightly/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-1/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-1/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-10/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-10/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-11/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-11/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-12/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-12/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-13/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-13/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-14/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-14/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-15/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-15/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-16/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-16/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-17/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-17/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-18/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-18/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-19/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-19/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-2/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-2/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-20/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-20/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-21/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-21/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-3/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-3/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-4/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-4/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-5/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-5/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-6/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-6/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-7/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-7/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-8/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-8/opt", 
++            "push-langpacks-nightly-l10n-linux64-devedition-nightly-9/opt": "push-langpacks-nightly-l10n-linux64-devedition-nightly-9/opt", 
++            "push-langpacks-nightly-l10n-macosx64-devedition-nightly-ja-JP-mac/opt": "push-langpacks-nightly-l10n-macosx64-devedition-nightly-ja-JP-mac/opt", 
++            "release-bouncer-check-devedition": "release-bouncer-check-devedition"
++        }, 
++        "kind": "release-balrog-set-readonly", 
++        "label": "release-balrog-set-readonly-devedition", 
++        "optimization": null, 
++        "soft_dependencies": [], 
++        "task": {
++            "created": {
++                "relative-datestamp": "0 seconds"
++            }, 
++            "deadline": {
++                "relative-datestamp": "1 day"
++            }, 
++            "expires": {
++                "relative-datestamp": "1 year"
++            }, 
++            "extra": {
++                "index": {
++                    "rank": 0
++                }, 
++                "parent": ""
++            }, 
++            "metadata": {
++                "description": "Set Devedition release as readonly in balrog", 
++                "name": "release-balrog-set-readonly-devedition", 
++                "owner": "xquan@mozilla.com", 
++                "source": "https://hg.mozilla.org/releases/mozilla-beta/file/196059cada7070ab1e35db83a22b60389bd0c794/taskcluster/ci/release-balrog-set-readonly"
++            }, 
++            "payload": {
++                "build_number": 1, 
++                "product": "devedition", 
++                "version": "60.0b1"
++            }, 
++            "priority": "high", 
++            "provisionerId": "scriptworker-k8s", 
++            "routes": [], 
++            "scopes": [
++                "project:releng:balrog:server:beta", 
++                "project:releng:balrog:action:set-readonly"
++            ], 
++            "tags": {
++                "createdForUser": "xquan@mozilla.com", 
++                "kind": "release-balrog-set-readonly", 
++                "label": "release-balrog-set-readonly-devedition", 
++                "retrigger": "false"
++            }, 
++            "workerType": "gecko-3-balrog"
++        }
++    }, 
+     "release-balrog-submit-toplevel-devedition": {
+         "attributes": {
+             "always_target": false, 
+             "kind": "release-balrog-submit-toplevel", 
+             "run_on_projects": [], 
+             "shipping_phase": "promote", 
+             "shipping_product": "devedition"
+         }, 
+         "dependencies": {}, 
+         "kind": "release-balrog-submit-toplevel", 
+         "label": "release-balrog-submit-toplevel-devedition", 
+         "optimization": null, 
+         "soft_dependencies": [], 
+         "task": {
+             "created": {
+                 "relative-datestamp": "0 seconds"
+             }, 
+             "deadline": {
+                 "relative-datestamp": "1 day"
+             }, 
+             "expires": {
+                 "relative-datestamp": "1 year"
+             }, 
+             "extra": {
+                 "index": {
+                     "rank": 1509164545
+                 }, 
+                 "parent": "", 
+                 "treeherder": {
+                     "collection": {

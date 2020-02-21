@@ -1,0 +1,149 @@
+diff --git a/home/allan-silva/code.allan/graph/clean/mb-ship-firefox.json b/home/allan-silva/code.allan/graph/dirty/mb-ship-firefox.json
+index b7035d76739a..932747a66ce3 100644
+--- a/home/allan-silva/code.allan/graph/clean/mb-ship-firefox.json
++++ b/home/allan-silva/code.allan/graph/dirty/mb-ship-firefox.json
+@@ -415411,60 +415411,144 @@
+             }, 
+             "payload": {
+                 "background_rate": 25, 
+                 "build_number": 1, 
+                 "force_fallback_mapping_update": true, 
+                 "product": "firefox", 
+                 "publish_rules": [
+                     32
+                 ], 
+                 "release_eta": "2018-01-31T00:30:00+00:00", 
+                 "version": "60.0b1"
+             }, 
+             "priority": "high", 
+             "provisionerId": "scriptworker-k8s", 
+             "routes": [
+                 "tc-treeherder.v2.mozilla-beta.196059cada7070ab1e35db83a22b60389bd0c794.8069"
+             ], 
+             "scopes": [
+                 "project:releng:balrog:server:beta", 
+                 "project:releng:balrog:action:schedule"
+             ], 
+             "tags": {
+                 "createdForUser": "xquan@mozilla.com", 
+                 "kind": "release-balrog-scheduling", 
+                 "label": "release-balrog-scheduling-firefox", 
+                 "retrigger": "false"
+             }, 
+             "workerType": "gecko-3-balrog"
+         }
+     }, 
++    "release-balrog-set-readonly-firefox": {
++        "attributes": {
++            "always_target": false, 
++            "kind": "release-balrog-set-readonly", 
++            "required_signoffs": [
++                "mar-signing"
++            ], 
++            "run_on_projects": [], 
++            "shipping_phase": "ship", 
++            "shipping_product": "firefox"
++        }, 
++        "dependencies": {
++            "push-langpacks-build-linux64-shippable/opt": "push-langpacks-build-linux64-shippable/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-1/opt": "push-langpacks-nightly-l10n-linux64-shippable-1/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-10/opt": "push-langpacks-nightly-l10n-linux64-shippable-10/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-11/opt": "push-langpacks-nightly-l10n-linux64-shippable-11/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-12/opt": "push-langpacks-nightly-l10n-linux64-shippable-12/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-13/opt": "push-langpacks-nightly-l10n-linux64-shippable-13/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-14/opt": "push-langpacks-nightly-l10n-linux64-shippable-14/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-15/opt": "push-langpacks-nightly-l10n-linux64-shippable-15/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-16/opt": "push-langpacks-nightly-l10n-linux64-shippable-16/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-17/opt": "push-langpacks-nightly-l10n-linux64-shippable-17/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-18/opt": "push-langpacks-nightly-l10n-linux64-shippable-18/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-19/opt": "push-langpacks-nightly-l10n-linux64-shippable-19/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-2/opt": "push-langpacks-nightly-l10n-linux64-shippable-2/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-20/opt": "push-langpacks-nightly-l10n-linux64-shippable-20/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-21/opt": "push-langpacks-nightly-l10n-linux64-shippable-21/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-3/opt": "push-langpacks-nightly-l10n-linux64-shippable-3/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-4/opt": "push-langpacks-nightly-l10n-linux64-shippable-4/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-5/opt": "push-langpacks-nightly-l10n-linux64-shippable-5/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-6/opt": "push-langpacks-nightly-l10n-linux64-shippable-6/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-7/opt": "push-langpacks-nightly-l10n-linux64-shippable-7/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-8/opt": "push-langpacks-nightly-l10n-linux64-shippable-8/opt", 
++            "push-langpacks-nightly-l10n-linux64-shippable-9/opt": "push-langpacks-nightly-l10n-linux64-shippable-9/opt", 
++            "push-langpacks-nightly-l10n-macosx64-shippable-ja-JP-mac/opt": "push-langpacks-nightly-l10n-macosx64-shippable-ja-JP-mac/opt", 
++            "release-bouncer-check-firefox": "release-bouncer-check-firefox"
++        }, 
++        "kind": "release-balrog-set-readonly", 
++        "label": "release-balrog-set-readonly-firefox", 
++        "optimization": null, 
++        "soft_dependencies": [], 
++        "task": {
++            "created": {
++                "relative-datestamp": "0 seconds"
++            }, 
++            "deadline": {
++                "relative-datestamp": "1 day"
++            }, 
++            "expires": {
++                "relative-datestamp": "1 year"
++            }, 
++            "extra": {
++                "index": {
++                    "rank": 0
++                }, 
++                "parent": ""
++            }, 
++            "metadata": {
++                "description": "Set Firefox release as readonly in balrog", 
++                "name": "release-balrog-set-readonly-firefox", 
++                "owner": "xquan@mozilla.com", 
++                "source": "https://hg.mozilla.org/releases/mozilla-beta/file/196059cada7070ab1e35db83a22b60389bd0c794/taskcluster/ci/release-balrog-set-readonly"
++            }, 
++            "payload": {
++                "build_number": 1, 
++                "product": "firefox", 
++                "version": "60.0b1"
++            }, 
++            "priority": "high", 
++            "provisionerId": "scriptworker-k8s", 
++            "routes": [], 
++            "scopes": [
++                "project:releng:balrog:server:beta", 
++                "project:releng:balrog:action:set-readonly"
++            ], 
++            "tags": {
++                "createdForUser": "xquan@mozilla.com", 
++                "kind": "release-balrog-set-readonly", 
++                "label": "release-balrog-set-readonly-firefox", 
++                "retrigger": "false"
++            }, 
++            "workerType": "gecko-3-balrog"
++        }
++    }, 
+     "release-balrog-submit-toplevel-firefox": {
+         "attributes": {
+             "always_target": false, 
+             "kind": "release-balrog-submit-toplevel", 
+             "run_on_projects": [], 
+             "shipping_phase": "promote", 
+             "shipping_product": "firefox"
+         }, 
+         "dependencies": {}, 
+         "kind": "release-balrog-submit-toplevel", 
+         "label": "release-balrog-submit-toplevel-firefox", 
+         "optimization": null, 
+         "soft_dependencies": [], 
+         "task": {
+             "created": {
+                 "relative-datestamp": "0 seconds"
+             }, 
+             "deadline": {
+                 "relative-datestamp": "1 day"
+             }, 
+             "expires": {
+                 "relative-datestamp": "1 year"
+             }, 
+             "extra": {
+                 "index": {
+                     "rank": 1509164545
+                 }, 
+                 "parent": "", 
+                 "treeherder": {
+                     "collection": {
